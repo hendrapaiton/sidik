@@ -24,9 +24,8 @@ jobs:
       - name: Run Tests
         run: |
           python manage.py test
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-          HEROKU_APP_NAME: "finger"
-        if: github.ref == 'refs/heads/master' && job.status == 'success'
-        run: git push https://$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
+      - uses: akhileshns/heroku-deploy@v3.4.6 # This is the action
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "finger"
+          heroku_email: "hendra@usa.com"
