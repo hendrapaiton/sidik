@@ -29,4 +29,4 @@ jobs:
           HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
           HEROKU_APP_NAME: "finger"
         if: github.ref == 'refs/heads/master' && job.status == 'success'
-        run: git push https://hendra:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
+        run: git push https://$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
