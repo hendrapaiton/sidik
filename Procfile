@@ -1,1 +1,1 @@
-web: gunicorn finger.wsgi --log-file -
+web: gunicorn sidik.wsgi --log-file -
