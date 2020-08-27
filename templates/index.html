@@ -5,11 +5,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sidik Jari</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <title>Sidik Jari</title>
 </head>
 <body>
-<p class="text-center display-1">Halo Dunia</p>
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">FlexCode SDK</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="topbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Device</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Log</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Documentation</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container"></div>
+<script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
