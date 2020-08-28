@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">FlexCode SDK</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="topbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link{% if menu == 'device' %} active{% endif %}" href="{% url 'device-index' %}">
+                        Device
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if menu == 'user' %} active{% endif %}" href="{% url 'user-index' %}">
+                        User
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if menu == 'login' %} active{% endif %}" href="{% url 'login-index' %}">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if menu == 'log' %} active{% endif %}" href="{% url 'log-index' %}">
+                        Log
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/hendrapaiton/sidik#readme">Documentation</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
