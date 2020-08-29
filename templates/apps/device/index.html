@@ -1,6 +1,44 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container"></div>
-    <script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success">Add</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            {% if devices.exists %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Device Name</th>
+                    <th>Device SN</th>
+                    <th>Device VC</th>
+                    <th>Device AC</th>
+                    <th>Device VKEY</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for dvc in devices %}
+                <tr>
+                    <td>{{ dvc.device_name }}</td>
+                    <td>{{ dvc.sn }}</td>
+                    <td>{{ dvc.vc }}</td>
+                    <td>{{ dvc.ac }}</td>
+                    <td>{{ dvc.vkey }}</td>
+                    <td><a class="btn btn-smbtn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>Device Empty</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 {% endblock %}
