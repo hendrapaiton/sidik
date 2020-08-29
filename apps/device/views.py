@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 
 from apps.device.forms import DeviceForm
@@ -20,13 +20,19 @@ def device(request, function='read'):
             'menu': 'device',
         }
         return render(request, 'apps/device/index.html', context)
-    elif request.method == 'GET' and function == 'update':
-        pass
     elif request.method == 'GET' and function == 'delete':
         pass
     elif request.method == 'POST' and function == 'create':
-        pass
-    elif request.method == 'POST' and function == 'update':
-        pass
+        form = DeviceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reversed('device'))
+        else:
+            form = DeviceForm()
+            context = {
+                'form': form,
+                'menu': 'device'
+            }
+            return render(request, 'apps/device/create.html', context)
     else:
         raise Http404('Denied by request filtering configuration')

@@ -17,31 +17,38 @@ class DeviceForm(forms.ModelForm):
             'device_name': forms.TextInput(
                 attrs={
                     'class': 'form-control mb-3',
-                    'placeholder': 'Device Name',
+                    'placeholder': 'Enter Name',
                 }
             ),
             'sn': forms.TextInput(
                 attrs={
                     'class': 'form-control mb-3',
-                    'placeholder': 'Device SN'
+                    'placeholder': 'Enter SN'
                 }
             ),
             'vc': forms.TextInput(
                 attrs={
                     'class': 'form-control mb-3',
-                    'placeholder': 'Device VC'
+                    'placeholder': 'Enter VC'
                 }
             ),
             'ac': forms.TextInput(
                 attrs={
                     'class': 'form-control mb-3',
-                    'placeholder': 'Device AC'
+                    'placeholder': 'Enter AC'
                 }
             ),
             'vkey': forms.TextInput(
                 attrs={
                     'class': 'form-control mb-3',
-                    'placeholder': 'Device VKEY'
+                    'placeholder': 'Enter VKEY'
                 }
             )
+        }
+        labels = {
+            'device_name': 'Device Name',
+            'sn': 'Device SN',
+            'vc': 'Device VC',
+            'ac': 'Device AC',
+            'vkey': 'Device VKEY',
         }

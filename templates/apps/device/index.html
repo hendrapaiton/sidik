@@ -28,8 +28,8 @@
                     <td>{{ dvc.sn }}</td>
                     <td>{{ dvc.vc }}</td>
                     <td>{{ dvc.ac }}</td>
-                    <td>{{ dvc.vkey }}</td>
-                    <td><a class="btn btn-smbtn-danger">Delete</a></td>
+                    <td>{{ dvc.vkey | truncatechars:5 }}</td>
+                    <td><a class="btn btn-sm btn-danger py-0">Delete</a></td>
                 </tr>
                 {% endfor %}
                 </tbody>
