@@ -1,4 +1,9 @@
-# SIDIK JARI ![Django Heroku CI](https://github.com/hendrapaiton/sidik/workflows/Django%20Heroku%20CI/badge.svg?branch=master)
+# SIDIK JARI 
+
+![Tests](https://github.com/hendrapaiton/sidik/workflows/Django%20Heroku%20CI/badge.svg?branch=master)
+![GitHub](https://img.shields.io/github/license/hendrapaiton/sidik.svg)
+![Issues](https://img.shields.io/github/issues/hendrapaiton/sidik.svg)
+
 > Finger Apps with FlexCodeSDK
 
 ## Table of Contents
@@ -6,7 +11,6 @@
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Inspiration](#inspiration)
 * [Contact](#contact)
 
 ## General info
