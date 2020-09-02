@@ -1,8 +1,6 @@
-name: Django Heroku CI
+name: Tests
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -36,8 +34,3 @@ jobs:
       - name: Run Tests
         run: |
           python manage.py test
-      - uses: akhileshns/heroku-deploy@v3.4.6
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "finger"
-          heroku_email: "hendra@usa.com"
