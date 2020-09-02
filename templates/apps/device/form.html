@@ -3,15 +3,16 @@
 {% block content %}
 <div class="container">
     <div class="row justify-content-center">
-        <form method="post" action="{% url 'device' 'create' %}" class="col-4">
+        <form method="post" action="{% url 'device-create' %}" class="col-4">
             {% csrf_token %}
             {% for field in form %}
                 <div class="form-group">
                     <label>{{ field.label }}</label>
                     {{ field }}
+                    <p class="help">{{ field.errors }}</p>
                 </div>
             {% endfor %}
-            <a href="{% url 'device' %}" class="btn btn-secondary">Back</a>
+            <a href="{% url 'device-read' %}" class="btn btn-secondary">Back</a>
             <button class="btn btn-success">Save</button>
         </form>
     </div>
