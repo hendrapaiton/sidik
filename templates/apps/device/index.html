@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row mt-2">
         <div class="col">
-            <a class="btn btn-success" href="{% url 'device' 'create' %}">Add</a>
+            <a class="btn btn-success" href="{% url 'device-create' %}">Add</a>
         </div>
     </div>
     <div class="row mt-3">
@@ -25,11 +25,13 @@
                 {% for dvc in devices %}
                 <tr>
                     <td>{{ dvc.device_name }}</td>
-                    <td>{{ dvc.sn }}</td>
-                    <td>{{ dvc.vc }}</td>
-                    <td>{{ dvc.ac }}</td>
+                    <td>{{ dvc.sn | truncatechars:5 }}</td>
+                    <td>{{ dvc.vc | truncatechars:5 }}</td>
+                    <td>{{ dvc.ac | truncatechars:5 }}</td>
                     <td>{{ dvc.vkey | truncatechars:5 }}</td>
-                    <td><a class="btn btn-sm btn-danger py-0">Delete</a></td>
+                    <td>
+                        <a class="btn btn-sm btn-danger py-0" href="{% url 'device=delete' dvc.id %}">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 </tbody>
