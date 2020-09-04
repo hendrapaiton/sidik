@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.device',
     'apps.user',
-    'apps.login',
     'apps.log',
 ]
 
