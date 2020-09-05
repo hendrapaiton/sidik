@@ -1,5 +1,6 @@
 {% extends 'layout/base.html' %}
 {% load static %}
+{% load template %}
 {% block content %}
     <div class="container">
         <div class="row mt-2">
@@ -24,10 +25,10 @@
                     <tr>
                         <td>{{ user.id }}</td>
                         <td>{{ user.username }}</td>
-                        <td class="text-danger">0</td>
+                        <td class="text-danger" id="template"></td>
                         <td width="180">
                             <a href="{% url 'user-delete' user.id %}" class="btn btn-sm btn-danger py-0">Delete</a>
-                            <a href="" class="btn btn-sm btn-primary py-0">Register</a>
+                            {% template user.id %}
                         </td>
                     </tr>
                     {% endfor %}
