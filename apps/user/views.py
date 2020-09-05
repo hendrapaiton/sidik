@@ -1,4 +1,3 @@
-import base64
 import hashlib
 
 from django.http import HttpResponse
@@ -111,11 +110,10 @@ def process_verification(request):
     pass
 
 
-@register.filter(name='encrypt_register')
-def encrypt_id(value):
-    baseurl = 'http://localhost:8000/user/register'
-    data = baseurl + '?user_id=' + str(value)
-    data = data.encode('ascii')
-    data = base64.b64encode(data)
-    data = data.decode('ascii')
-    return data
+@register.filter(name='finger_template')
+def finger_template(value):
+    finger = Finger.objects.filter(username__id=value).exists()
+    if finger:
+        return 1
+    else:
+        return 0
