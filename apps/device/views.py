@@ -13,7 +13,7 @@ def create(request):
             form.save()
             return redirect('/device/')
         else:
-            return HttpResponse('Kesalahan dalam formulir, tekan <a href="/device">disini</a> untuk kembali')
+            return HttpResponse('Error in forms, click <a href="/device/">here</a> to go back')
     else:
         context = {
             'form': form,
@@ -57,3 +57,12 @@ def delete(request, id_device):
         return redirect('/device/')
     device.delete()
     return redirect('/device/')
+
+
+def getac(request):
+    vc = request.GET.get('vc')
+    try:
+        device_acsn = Device.objects.get(vc=vc)
+        return HttpResponse(device_acsn.ac + device_acsn.sn)
+    except Device.DoesNotExist:
+        return HttpResponse('empty')

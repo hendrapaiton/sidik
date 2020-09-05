@@ -27,7 +27,7 @@
                         <td class="text-danger">0</td>
                         <td width="180">
                             <a href="{% url 'user-delete' user.id %}" class="btn btn-sm btn-danger py-0">Delete</a>
-                            <a href="" class="btn btn-sm btn-primary py-0">Register</a>
+                            <a href="finspot:FingerspotReg;?user_id={{ user.id }}" class="btn btn-sm btn-primary py-0">Register</a>
                         </td>
                     </tr>
                     {% endfor %}
