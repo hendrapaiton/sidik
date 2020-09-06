@@ -65,11 +65,11 @@ def delete(request, id_user):
 
 
 def user_register(request):
-    baseurl = 'http://localhost:8000'
+    baseurl = request.build_absolute_uri('/')
     user_id = request.GET.get('user_id')
     sectkey = 'SecurityKey'
     limit = 15
-    result = user_id + ';' + sectkey + ';' + str(limit) + ';' + baseurl + '/user/register/process;' + baseurl + '/device/getac'
+    result = user_id + ';' + sectkey + ';' + str(limit) + ';' + baseurl + 'user/register/process;' + baseurl + 'device/getac'
     return HttpResponse(result)
 
 
@@ -103,7 +103,7 @@ def process_register(request):
 
 
 def user_verification(request):
-    baseurl = 'http://localhost:8000'
+    baseurl = request.build_absolute_uri('/')
     user_id = request.GET.get('user_id')
     try:
         finger = Finger.objects.get(username__id=user_id)
@@ -111,13 +111,13 @@ def user_verification(request):
         finger = ''
     sectkey = 'SecurityKey'
     limit = 10
-    result = user_id + ';' + finger.finger_data + ';' + sectkey + ';' + str(limit) + ';' + baseurl + '/user/verification/process;' + baseurl + '/device/getac;extraParams'
+    result = user_id + ';' + finger.finger_data + ';' + sectkey + ';' + str(limit) + ';' + baseurl + 'user/verification/process;' + baseurl + 'device/getac;extraParams'
     return HttpResponse(result)
 
 
 @csrf_exempt
 def process_verification(request):
-    baseurl = 'http://localhost:8000'
+    baseurl = request.build_absolute_uri('/')
     ver = request.POST
     data = []
     for v in ver:
@@ -141,9 +141,9 @@ def process_verification(request):
         temp = sn + fingerdata.finger_data + device.vc + time + user_id + device.vkey
         salt = hashlib.md5(temp.encode('utf-8')).hexdigest()
         if str(vstamp).upper() == str(salt).upper():
-            return HttpResponse(baseurl + '/log/message?user_name=' + user_name + '&time=' + time)
+            return HttpResponse(baseurl + 'log/message?user_name=' + user_name + '&time=' + time)
         else:
-            return HttpResponse(baseurl + '/log/message?msg=error')
+            return HttpResponse(baseurl + 'log/message?msg=error')
     else:
         msg = 'Parameter invalid..'
         return HttpResponse(msg)
